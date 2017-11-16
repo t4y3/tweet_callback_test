@@ -5,6 +5,7 @@
     <title>Tweet Callback Test</title>
   </head>
   <body>
+    <h1>v.3</h1>
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <script type="text/javascript">
@@ -21,7 +22,7 @@
       // ツイート完了後のコールバック
       function afterTweet(intent_event) {
         if (intent_event) {
-          console.log('ツイート完了');
+          alert('ツイート完了');
         };
       }
 
