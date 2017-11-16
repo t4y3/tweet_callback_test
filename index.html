@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tweet Callback Test</title>
+  </head>
+  <body>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+
+    <script type="text/javascript">
+
+      // ツイートボタン
+      window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+      js.src="https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+      }(document, "script", "twitter-wjs"));
+
+      // ツイート完了後のコールバック
+      function afterTweet(intent_event) {
+        if (intent_event) {
+          console.log('ツイート完了');
+        };
+      }
+
+      // イベントにコールバックをバインド
+      twttr.ready(function (twttr) {
+        twttr.events.bind('tweet', afterTweet);
+      });
+    </script>
+  </body>
+</html>
